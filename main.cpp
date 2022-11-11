@@ -37,7 +37,7 @@ int main()
 
     cout << endl;
 
-    cout << "Lagest Group: ";
+    cout << "Largest Group: ";
     test.setLargest();
     test.PrintLargest();
 
