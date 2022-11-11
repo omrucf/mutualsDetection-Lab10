@@ -103,6 +103,17 @@ void graph::setGroups()
 
 void graph::setLargest()
 {
+    int max = 0;
+    LGPos = 0;
+    for (int i = 0; i < Groups.size(); i++)
+    {
+        if (Groups.at(i).size() > max)
+        {
+            max = Groups.at(i).size();
+            LGPos = i;
+        }
+    }
+
     LG = Groups.at(LGPos);
 }
 
@@ -124,17 +135,6 @@ void graph::PrintGroups()
             cout << "}";
             cout << endl;
             c++;
-        }
-    }
-
-    int max = 0;
-    LGPos = 0;
-    for (int i = 0; i < Groups.size(); i++)
-    {
-        if (Groups.at(i).size() > max)
-        {
-            max = Groups.at(i).size();
-            LGPos = i;
         }
     }
 }
