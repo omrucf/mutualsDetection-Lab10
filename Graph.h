@@ -11,8 +11,13 @@ typedef vector<vector<int>> MTRX;
 class graph
 {
   MTRX adjMTRX;
+  MTRX Groups;
+
   vector<bool> visited;
   vector<int> finished;
+  vector<int> LG;
+  
+  int LGPos;
 
 public:
   graph();
@@ -25,7 +30,10 @@ public:
   vector<int> DFST(int);
 
   void DFS(int);
+  void setGroups();
+  void setLargest();
   void getGroups();
+  void getLargest();
 };
 
 #endif /*GRAPH_H*/

@@ -17,8 +17,9 @@ int main()
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
     graph test(TEST);
-    cout << "testing getGroups\n";
+    cout << "Running..\n\n";
     test.getGroups();
+    test.getLargest();
 
     return 0;
 }

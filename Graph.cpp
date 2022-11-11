@@ -86,7 +86,55 @@ void graph::DFS(int n)
 
 void graph::getGroups()
 {
-    for (vector<int>::size_type i = 0; i < adjMTRX.size(); i++)
+    cout << "\nGroups:\n";
+    int c = 1;
+    for (MTRX::size_type i = 0; i < Groups.size(); i++)
+    {
+        if (!Groups.at(i).empty())
+        {
+            cout << "Group " << c << ": {";
+            for (auto j = Groups.at(i).begin(); j != Groups.at(i).end(); j++)
+            {
+                cout << *j;
+
+                if (j != Groups.at(i).end() - 1)
+                    cout << ",";
+            }
+            cout << "}";
+            cout << endl;
+            c++;
+        }
+    }
+
+    int max = 0;
+    LGPos = 0;
+    for (int i = 0; i < Groups.size(); i++)
+    {
+        if (Groups.at(i).size() > max)
+        {
+            max = Groups.at(i).size();
+            LGPos = i;
+        }
+    }
+}
+
+void graph::getLargest()
+{
+    cout << "{";
+    for (auto i = LG.begin(); i != LG.end(); i++)
+    {
+        cout << *i;
+
+        if (i != LG.end() - 1)
+            cout << ",";
+    }
+    cout << "}";
+    cout << endl;
+}
+
+void graph::setGroups()
+{
+     for (vector<int>::size_type i = 0; i < adjMTRX.size(); i++)
     {
         if (!visited.at(i))
         {
@@ -102,54 +150,13 @@ void graph::getGroups()
 
     graph TRNSPS = this->transpose();
 
-    MTRX Groups;
     for (int i = finished.size() - 1; i >= 0; i--)
     {
         Groups.push_back(TRNSPS.DFST(finished.at(i)));
     }
-    cout << "\nGroups:\n";
-    int c = 1;
-    for (MTRX::size_type i = 0; i < Groups.size(); i++)
-    {
-        if (!Groups.at(i).empty())
-        {
-            cout << "Group " << c << ": {";
-            for (auto j = Groups.at(i).begin(); j != Groups.at(i).end(); j++)
-            {
-                cout << *j;
-                
-                if(j != Groups.at(i).end()-1)
-                    cout << ",";
-            }
-            cout << "}";
-            cout << endl;
-            c++;
-        }
-    }
+}
 
-    int pos = 0,
-        max = 0;
-    for (int i = 0; i < Groups.size(); i++)
-    {
-        if (Groups.at(i).size() > max)
-        {
-            max = Groups.at(i).size();
-            pos = i;
-        }
-    }
-
-    vector<int> LG = Groups.at(pos);
-
-    cout << "Largest group:\n";
-
-    cout << "{";
-    for (auto i = LG.begin(); i != LG.end(); i++)
-    {
-        cout << *i;
-
-        if(i != LG.end() - 1)
-            cout << ",";
-    }
-cout << "}";
-    cout << endl;
+void graph::setLargest()
+{
+    LG = Groups.at(LGPos);
 }
