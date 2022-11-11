@@ -1,3 +1,13 @@
+/*
+Name: Omar Yossuf
+SID: 900212166
+Instructor: Nada GabAllah
+Course: CSCE 2203
+Section #03
+Lab: 10
+Date: Nov 11th, 2022
+*/
+
 #include "Graph.h"
 
 graph::graph(int R, int C)
