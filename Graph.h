@@ -6,20 +6,26 @@
 
 using namespace std;
 
+typedef vector<vector<int>> MTRX;
+
 class graph
 {
-public:
-  vector<vector<int>> adjMTRX;;
+  MTRX adjMTRX;
   vector<bool> visited;
   vector<int> finished;
 
+public:
   graph();
   graph(const graph &);
   graph(int, int);
-
-  void DFS(int);
+  graph(MTRX);
 
   graph transpose();
+
+  vector<int> DFST(int);
+
+  void DFS(int);
+  void getGroups();
 };
 
 #endif /*GRAPH_H*/
