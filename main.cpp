@@ -17,9 +17,21 @@ int main()
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
     graph test(TEST);
-    cout << "Running..\n\n";
+    cout << "Running..\n";
+
+    cout << endl;
+
+    cout << "Groups:\n";
+    test.setGroups();
     test.getGroups();
+
+    cout << endl;
+
+    cout << "Lagest Group: ";
+    test.setLargest();
     test.getLargest();
+
+    cout << endl;
 
     return 0;
 }

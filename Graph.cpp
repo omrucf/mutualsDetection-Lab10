@@ -48,8 +48,6 @@ vector<int> graph::DFST(int n)
     {
         Group.push_back(n);
 
-        cout << n << " ";
-
         visited.at(n) = true;
 
         for (vector<int>::size_type j = adjMTRX.at(n).at(0); j < adjMTRX.at(n).size(); j++)
@@ -86,13 +84,12 @@ void graph::DFS(int n)
 
 void graph::getGroups()
 {
-    cout << "\nGroups:\n";
     int c = 1;
     for (MTRX::size_type i = 0; i < Groups.size(); i++)
     {
         if (!Groups.at(i).empty())
         {
-            cout << "Group " << c << ": {";
+            cout << "\tGroup " << c << ": {";
             for (auto j = Groups.at(i).begin(); j != Groups.at(i).end(); j++)
             {
                 cout << *j;
@@ -141,12 +138,6 @@ void graph::setGroups()
             DFS(i);
         }
     }
-    cout << "finished is:\n";
-    for (vector<int>::iterator it = finished.begin(); it != finished.end(); it++)
-    {
-        cout << *it << " ";
-    }
-    cout << endl;
 
     graph TRNSPS = this->transpose();
 
