@@ -83,7 +83,30 @@ void graph::DFS(int n)
     finished.push_back(n);
 }
 
-void graph::getGroups()
+void graph::setGroups()
+{
+     for (vector<int>::size_type i = 0; i < adjMTRX.size(); i++)
+    {
+        if (!visited.at(i))
+        {
+            DFS(i);
+        }
+    }
+
+    graph TRNSPS = this->transpose();
+
+    for (int i = finished.size() - 1; i >= 0; i--)
+    {
+        Groups.push_back(TRNSPS.DFST(finished.at(i)));
+    }
+}
+
+void graph::setLargest()
+{
+    LG = Groups.at(LGPos);
+}
+
+void graph::PrintGroups()
 {
     int c = 1;
     for (MTRX::size_type i = 0; i < Groups.size(); i++)
@@ -116,7 +139,7 @@ void graph::getGroups()
     }
 }
 
-void graph::getLargest()
+void graph::PrintLargest()
 {
     cout << "{";
     for (auto i = LG.begin(); i != LG.end(); i++)
@@ -128,27 +151,4 @@ void graph::getLargest()
     }
     cout << "}";
     cout << endl;
-}
-
-void graph::setGroups()
-{
-     for (vector<int>::size_type i = 0; i < adjMTRX.size(); i++)
-    {
-        if (!visited.at(i))
-        {
-            DFS(i);
-        }
-    }
-
-    graph TRNSPS = this->transpose();
-
-    for (int i = finished.size() - 1; i >= 0; i--)
-    {
-        Groups.push_back(TRNSPS.DFST(finished.at(i)));
-    }
-}
-
-void graph::setLargest()
-{
-    LG = Groups.at(LGPos);
 }

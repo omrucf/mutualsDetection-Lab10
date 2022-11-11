@@ -41,8 +41,8 @@ public:
   void DFS(int);
   void setGroups();
   void setLargest();
-  void getGroups();
-  void getLargest();
+  void PrintGroups();
+  void PrintLargest();
 };
 
 #endif /*GRAPH_H*/

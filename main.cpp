@@ -33,13 +33,13 @@ int main()
 
     cout << "Groups:\n";
     test.setGroups();
-    test.getGroups();
+    test.PrintGroups();
 
     cout << endl;
 
     cout << "Lagest Group: ";
     test.setLargest();
-    test.getLargest();
+    test.PrintLargest();
 
     cout << endl;
 
