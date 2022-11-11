@@ -1,14 +1,5 @@
 #include "Graph.h"
 
-graph::graph(const graph &g)
-{
-    adjMTRX = g.adjMTRX;
-
-    vector<bool> temp(g.adjMTRX.size(), false);
-
-    visited = temp;
-}
-
 graph::graph(int R, int C)
 {
     MTRX temp(R, vector<int>(C));

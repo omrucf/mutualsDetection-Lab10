@@ -21,7 +21,6 @@ class graph
 
 public:
   graph();
-  graph(const graph &);
   graph(int, int);
   graph(MTRX);
 
