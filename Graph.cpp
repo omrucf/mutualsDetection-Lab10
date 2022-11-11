@@ -108,15 +108,23 @@ void graph::getGroups()
         Groups.push_back(TRNSPS.DFST(finished.at(i)));
     }
     cout << "\nGroups:\n";
+    int c = 1;
     for (MTRX::size_type i = 0; i < Groups.size(); i++)
     {
-        cout << "Group " << i + 1 << ": {";
-        for (auto j = Groups.at(i).begin(); j != Groups.at(i).end(); j++)
+        if (!Groups.at(i).empty())
         {
-            cout << *j << ",";
+            cout << "Group " << c << ": {";
+            for (auto j = Groups.at(i).begin(); j != Groups.at(i).end(); j++)
+            {
+                cout << *j;
+                
+                if(j != Groups.at(i).end()-1)
+                    cout << ",";
+            }
+            cout << "}";
+            cout << endl;
+            c++;
         }
-        cout << "}";
-        cout << endl;
     }
 
     int pos = 0,
@@ -134,9 +142,14 @@ void graph::getGroups()
 
     cout << "Largest group:\n";
 
+    cout << "{";
     for (auto i = LG.begin(); i != LG.end(); i++)
     {
-        cout << *i << " ";
+        cout << *i;
+
+        if(i != LG.end() - 1)
+            cout << ",";
     }
+cout << "}";
     cout << endl;
 }
