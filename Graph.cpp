@@ -32,7 +32,10 @@ graph::graph(MTRX mtrx)
 
 graph graph::transpose()
 {
-    graph Transpose(adjMTRX.at(0).size(), adjMTRX.size());
+
+    int size = adjMTRX.size();
+
+    graph Transpose(size, size);
 
     for (MTRX::size_type i = 0; i < adjMTRX.size(); ++i)
         for (vector<int>::size_type j = 0; j < adjMTRX.at(0).size(); ++j)
