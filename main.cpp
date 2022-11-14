@@ -130,7 +130,7 @@ PrintGroups()
     }
 }
 
-void graph::PrintLargest()
+PrintLargest()
 {
     print largest group LG
 }
