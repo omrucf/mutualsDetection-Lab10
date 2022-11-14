@@ -31,7 +31,7 @@ class graph
 
 public:
   graph();
-  graph(int, int);
+  graph(int);
   graph(MTRX);
 
   graph transpose();

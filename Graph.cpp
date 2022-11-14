@@ -10,13 +10,13 @@ Date: Nov 11th, 2022
 
 #include "Graph.h"
 
-graph::graph(int R, int C)
+graph::graph(int size)
 {
-    MTRX temp(R, vector<int>(C));
+    MTRX temp(size, vector<int>(size));
 
     adjMTRX = temp;
 
-    vector<bool> V(R, false);
+    vector<bool> V(size, false);
 
     visited = V;
 }
@@ -35,7 +35,7 @@ graph graph::transpose()
 
     int size = adjMTRX.size();
 
-    graph Transpose(size, size);
+    graph Transpose(size);
 
     for (MTRX::size_type i = 0; i < adjMTRX.size(); ++i)
         for (vector<int>::size_type j = 0; j < adjMTRX.at(0).size(); ++j)
@@ -54,7 +54,9 @@ vector<int> graph::DFST(int n)
 
         visited.at(n) = true;
 
-        for (vector<int>::size_type j = adjMTRX.at(n).at(0); j < adjMTRX.at(n).size(); j++)
+        int size = adjMTRX.size();
+
+        for (vector<int>::size_type j = adjMTRX.at(n).at(0); j < size; j++)
         {
             if (adjMTRX.at(n).at(j) == 1)
             {
@@ -73,6 +75,7 @@ vector<int> graph::DFST(int n)
 void graph::DFS(int n)
 {
     visited.at(n) = true;
+    
     for (vector<int>::size_type i = 0; i < adjMTRX.at(n).size(); i++)
     {
         if (adjMTRX.at(n).at(i) == 1)
@@ -108,11 +111,13 @@ void graph::setLargest()
 {
     int max = 0;
     LGPos = 0;
+
     for (int i = 0; i < Groups.size(); i++)
     {
-        if (Groups.at(i).size() > max)
+        int tempSize = Groups.at(i).size();
+        if (tempSize > max)
         {
-            max = Groups.at(i).size();
+            max = tempSize;
             LGPos = i;
         }
     }
