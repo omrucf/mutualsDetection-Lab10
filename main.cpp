@@ -13,16 +13,16 @@ Date: Nov 11th, 2022
   
 graph(int size)
 {
-   initialize vector adjMTRX to have the given size
+    initialize vector adjMTRX to have the given size
 
-   initialize vector visited to have the same size and all elements to be false
+    initialize vector visited to have the same size and all elements to be false
 }
 
 graph(vector of vector of int mtrx)
 {
     let adjMTRX vector to be the same as the given vector mtrx
 
-   initialize vector visited to have the same size and all elements to be false
+    initialize vector visited to have the same size and all elements to be false
 }
 
 transpose()
